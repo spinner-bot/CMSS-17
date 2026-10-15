@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CMSS-17 前期调研报告 · 正大杯参赛选题研究</title>
+<style>
+  :root{
+    --ink:#1a1a1a; --ink-2:#5a5f66; --accent:#1f4e79; --warn:#c0504d;
+    --line:#e3e6ea; --bg:#ffffff; --quote:#f7f8fa;
+    --max:800px;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Noto Serif SC","Source Han Serif SC","Songti SC",Georgia,serif;
+    font-size:16px; line-height:1.8;
+  }
+  .wrap{max-width:var(--max); margin:0 auto; padding:64px 24px 96px;}
+  .sans{font-family:"Inter",-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;}
+
+  /* ---------- 封面 ---------- */
+  .cover{padding:64px 0 56px; border-bottom:2px solid var(--accent); margin-bottom:56px;}
+  .cover .kicker{
+    font-family:"Inter",sans-serif; font-size:.78rem; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--accent); font-weight:600; margin-bottom:20px;
+  }
+  .cover h1{font-size:2.15rem; line-height:1.35; margin:0 0 14px; letter-spacing:-.01em;}
+  .cover .sub{font-size:1.02rem; color:var(--ink-2); margin:0 0 32px;}
+  .byline{font-family:"Inter",sans-serif; font-size:.86rem; color:var(--ink-2); line-height:2;}
+  .byline a{color:var(--accent); text-decoration:none; border-bottom:1px solid rgba(31,78,121,.35);}
+  .byline a:hover{border-bottom-color:var(--accent);}
+
+  /* ---------- 摘要 ---------- */
+  .abstract{background:var(--quote); border-left:3px solid var(--accent);
+    padding:24px 28px; margin:0 0 56px; border-radius:0 4px 4px 0;}
+  .abstract h2{margin:0 0 12px; font-size:1rem; font-family:"Inter",sans-serif;
+    letter-spacing:.06em; text-transform:uppercase; color:var(--accent);}
+  .abstract p{margin:0 0 12px; font-size:.95rem;}
+  .abstract p:last-child{margin-bottom:0;}
+
+  /* ---------- 目录 ---------- */
+  nav.toc{border:1px solid var(--line); border-radius:4px; padding:24px 28px; margin:0 0 64px;}
+  nav.toc h2{margin:0 0 14px; font-size:.95rem; font-family:"Inter",sans-serif;
+    letter-spacing:.06em; text-transform:uppercase; color:var(--ink-2);}
+  nav.toc ol{margin:0; padding-left:1.4em; font-family:"Inter",sans-serif; font-size:.9rem;}
+  nav.toc li{margin:7px 0;}
+  nav.toc a{color:var(--ink); text-decoration:none;}
+  nav.toc a:hover{color:var(--accent);}
+  nav.toc .sub-i{list-style:none; padding-left:0; color:var(--ink-2); font-size:.85rem; margin:2px 0 2px 0;}
+
+  /* ---------- 章节 ---------- */
+  section{margin:0 0 64px;}
+  h2.ch{font-size:1.42rem; margin:0 0 22px; padding-left:16px; position:relative; line-height:1.4;}
+  h2.ch::before{content:""; position:absolute; left:0; top:.16em; bottom:.16em;
+    width:3px; background:var(--accent); border-radius:2px;}
+  h3{font-size:1.08rem; margin:32px 0 12px;}
+  h4{font-size:.98rem; margin:24px 0 10px; color:var(--ink-2);}
+  p{margin:0 0 1em;}
+  ul,ol{padding-left:1.5em;}
+  li{margin:.4em 0;}
+  strong{font-weight:700;}
+
+  /* ---------- 表格 ---------- */
+  table{width:100%; border-collapse:collapse; margin:20px 0; font-size:.9rem;}
+  th,td{border:1px solid var(--line); padding:9px 12px; text-align:left; vertical-align:top;}
+  th{background:var(--quote); font-weight:600; font-family:"Inter",sans-serif; font-size:.84rem;}
+  .scroll{overflow-x:auto;}
+
+  /* ---------- 引用块 ---------- */
+  blockquote{margin:20px 0; padding:14px 20px; background:var(--quote);
+    border-left:3px solid var(--line); color:var(--ink-2); font-size:.94rem;}
+  blockquote p:last-child{margin-bottom:0;}
+
+  /* ---------- 证据强度徽章 ---------- */
+  .ev{display:inline-block; font-family:"Inter",sans-serif; font-size:.7rem;
+    font-weight:600; padding:1px 7px; border-radius:3px; vertical-align:1px;
+    letter-spacing:.04em; white-space:nowrap;}
+  .ev-s{background:#e7f0e8; color:#2f6b3a;}   /* 强 */
+  .ev-m{background:#eceef1; color:#5a5f66;}   /* 中 */
+  .ev-w{background:#fbeceb; color:#a8453f;}   /* 弱 */
+  sup.src{font-family:"Inter",sans-serif; font-size:.7rem; color:var(--accent);
+    font-weight:600; margin-left:2px;}
+
+  /* ---------- 警示框 ---------- */
+  .callout{border:1px solid #eecdcc; background:#fdf6f5; border-left:3px solid var(--warn);
+    padding:16px 20px; margin:20px 0; border-radius:0 4px 4px 0; font-size:.94rem;}
+  .callout .t{font-family:"Inter",sans-serif; font-weight:600; color:var(--warn);
+    font-size:.8rem; letter-spacing:.06em; text-transform:uppercase; margin-bottom:6px;}
+
+  /* ---------- 图表 ---------- */
+  figure{margin:28px 0;}
+  figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:"Inter",sans-serif; font-size:.8rem; color:var(--ink-2);
+    margin-top:10px; text-align:center;}
+
+  /* ---------- 占位 ---------- */
+  .todo{background:#fffaf0; border:1px dashed #e0c89a; color:#8a6d3b;
+    padding:14px 18px; border-radius:4px; font-family:"Inter",sans-serif;
+    font-size:.86rem; margin:16px 0;}
+
+  /* ---------- 页脚 ---------- */
+  footer{border-top:1px solid var(--line); margin-top:80px; padding-top:28px;
+    font-family:"Inter",sans-serif; font-size:.84rem; color:var(--ink-2); line-height:1.9;}
+  footer a{color:var(--accent); text-decoration:none; border-bottom:1px solid rgba(31,78,121,.35);}
+
+  /* ---------- 打印 ---------- */
+  @media print{
+    body{font-size:11.5pt;}
+    .wrap{padding:0; max-width:none;}
+    nav.toc{page-break-after:always;}
+    section{page-break-inside:avoid;}
+    h2.ch{page-break-after:avoid;}
+  }
+  @media (max-width:768px){
+    .wrap{padding:32px 18px 64px;}
+    .cover h1{font-size:1.6rem;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ═══════════ 封面 ═══════════ -->
+  <header class="cover">
+    <div class="kicker">CMSS-17 · 前期调研报告</div>
+    <h1>正大杯参赛选题的前期调研</h1>
+    <p class="sub">从赛事约束到方向簇 —— 一份基于可溯源事实的选题论证</p>
+    <div class="byline">
+      调研与撰写：<a href="https://github.com/spinner-bot" target="_blank" rel="noopener">spinner-bot</a>（张锐寒）· 河海大学<br>
+      团队：杨芮 · 刘诗蓉 · 沈舒畅<br>
+      协作工具：Claude Code (local) · Codex (local)<br>
+      日期：2026-10-15
+    </div>
+  </header>
+
+  <!-- ═══════════ 摘要 ═══════════ -->
+  <div class="abstract">
+    <h2>摘要 Executive Summary</h2>
+    <div class="todo">待 L5 收敛完成后撰写。需一页读完：核心结论、关键依据、推荐的方向簇。</div>
+  </div>
+
+  <!-- ═══════════ 目录 ═══════════ -->
+  <nav class="toc">
+    <h2>目录</h2>
+    <ol>
+      <li><a href="#ch1">调研背景与方法</a></li>
+      <li><a href="#ch2">赛事约束分析（L0）</a></li>
+      <li><a href="#ch3">市场机会识别（L1）</a></li>
+      <li><a href="#ch4">数据可行性（L2）</a></li>
+      <li><a href="#ch5">技术可行性（L3）</a></li>
+      <li><a href="#ch6">竞品与差异化（L4）</a></li>
+      <li><a href="#ch7">方向簇建议与论证（L5）</a></li>
+      <li><a href="#ch8">风险与执行路径</a></li>
+      <li><a href="#refs">参考文献</a></li>
+      <li><a href="#appendix">附录</a></li>
+    </ol>
+  </nav>
+
+  <!-- ═══════════ 第 1 章 ═══════════ -->
+  <section id="ch1">
+    <h2 class="ch">1 · 调研背景与方法</h2>
+    <p>本报告不是为某个既定选题做背书，而是用客观事实把选题「推导」出来。为此建立了一条自约束识别到方向收敛的逐级论证链条，每一级的结论都必须有据可查。</p>
+
+    <figure>
+      <svg viewBox="0 0 780 250" xmlns="http://www.w3.org/2000/svg" role="img"
+           aria-label="L0 到 L6 的调研逻辑链条流程图">
+        <defs>
+          <marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+            <path d="M0,0 L7,3 L0,6 z" fill="#9aa3ad"/>
+          </marker>
+        </defs>
+        <g font-family="Inter,sans-serif" font-size="12" fill="#1a1a1a">
+          <!-- L0 -->
+          <rect x="14" y="30" width="104" height="58" rx="4" fill="#eef3f8" stroke="#1f4e79" stroke-width="1.4"/>
+          <text x="66" y="53" text-anchor="middle" font-weight="600" fill="#1f4e79">L0 约束识别</text>
+          <text x="66" y="71" text-anchor="middle" font-size="10" fill="#5a5f66">赛事 + 团队禀赋</text>
+          <!-- L1 -->
+          <rect x="146" y="30" width="104" height="58" rx="4" fill="#fff" stroke="#e3e6ea" stroke-width="1.4"/>
+          <text x="198" y="53" text-anchor="middle" font-weight="600">L1 机会识别</text>
+          <text x="198" y="71" text-anchor="middle" font-size="10" fill="#5a5f66">真实需求痛点</text>
+          <!-- L2 -->
+          <rect x="278" y="30" width="104" height="58" rx="4" fill="#fdf6f5" stroke="#c0504d" stroke-width="1.4"/>
+          <text x="330" y="53" text-anchor="middle" font-weight="600" fill="#c0504d">L2 数据可行性</text>
+          <text x="330" y="71" text-anchor="middle" font-size="10" fill="#5a5f66">关键筛选闸</text>
+          <!-- L3 -->
+          <rect x="410" y="30" width="104" height="58" rx="4" fill="#fff" stroke="#e3e6ea" stroke-width="1.4"/>
+          <text x="462" y="53" text-anchor="middle" font-weight="600">L3 技术可行性</text>
+          <text x="462" y="71" text-anchor="middle" font-size="10" fill="#5a5f66">AI 增量</text>
+          <!-- L4 -->
+          <rect x="542" y="30" width="104" height="58" rx="4" fill="#fff" stroke="#e3e6ea" stroke-width="1.4"/>
+          <text x="594" y="53" text-anchor="middle" font-weight="600">L4 竞品扫描</text>
+          <text x="594" y="71" text-anchor="middle" font-size="10" fill="#5a5f66">差异化</text>
+          <!-- 箭头 -->
+          <line x1="118" y1="59" x2="144" y2="59" stroke="#9aa3ad" stroke-width="1.2" marker-end="url(#ar)"/>
+          <line x1="250" y1="59" x2="276" y2="59" stroke="#9aa3ad" stroke-width="1.2" marker-end="url(#ar)"/>
+          <line x1="382" y1="59" x2="408" y2="59" stroke="#9aa3ad" stroke-width="1.2" marker-end="url(#ar)"/>
+          <line x1="514" y1="59" x2="540" y2="59" stroke="#9aa3ad" stroke-width="1.2" marker-end="url(#ar)"/>
+          <!-- 折返 → L5 -->
+          <path d="M646,59 L700,59 L700,120 L360,120" fill="none" stroke="#9aa3ad"
+                stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#ar)"/>
+          <!-- L5 -->
+          <rect x="200" y="146" width="160" height="58" rx="4" fill="#eef3f8" stroke="#1f4e79" stroke-width="1.8"/>
+          <text x="280" y="169" text-anchor="middle" font-weight="600" fill="#1f4e79">L5 方向簇收敛</text>
+          <text x="280" y="187" text-anchor="middle" font-size="10" fill="#5a5f66">多个相近方向 + 主推</text>
+          <!-- L6 -->
+          <rect x="400" y="146" width="140" height="58" rx="4" fill="#fff" stroke="#e3e6ea" stroke-width="1.4"/>
+          <text x="470" y="169" text-anchor="middle" font-weight="600">L6 报告交付</text>
+          <text x="470" y="187" text-anchor="middle" font-size="10" fill="#5a5f66">HTML 交付物</text>
+          <line x1="360" y1="175" x2="398" y2="175" stroke="#9aa3ad" stroke-width="1.2" marker-end="url(#ar)"/>
+          <!-- 排除说明 -->
+          <line x1="330" y1="88" x2="330" y2="228" stroke="#c0504d" stroke-width="1.2" stroke-dasharray="3 3"/>
+          <text x="338" y="228" font-size="10" fill="#c0504d">数据不可得 → 淘汰</text>
+        </g>
+      </svg>
+      <figcaption>图 1 · L0–L6 调研逻辑链条。L2（数据可行性）是正大杯特有的关键筛选闸。</figcaption>
+    </figure>
+
+    <h3>1.1 证据分级标准</h3>
+    <p>报告中每一项事实性结论均标注来源与证据强度。<span class="ev ev-s">强</span> 官方文件、法条原文、主办方发布的章程或评分表；<span class="ev ev-m">中</span> 高校官网通知、权威媒体报道；<span class="ev ev-w">弱</span> 自媒体、论坛、二手转述。<strong>强度为「弱」的结论不得作为方向决策的依据。</strong></p>
+    <div class="todo">待补充：完整的来源编号体系与引用格式说明。</div>
+  </section>
+
+  <!-- ═══════════ 第 2 章 ═══════════ -->
+  <section id="ch2">
+    <h2 class="ch">2 · 赛事约束分析（L0）</h2>
+    <div class="todo">待 DEPLOY-001 完成。将覆盖：赛事主体、参赛规则、赛道与组别、提交物与评分细则、往届获奖选题分布、AI 相关线索。</div>
+  </section>
+
+  <section id="ch3">
+    <h2 class="ch">3 · 市场机会识别（L1）</h2>
+    <div class="todo">待 DEPLOY-003 完成。将覆盖：痛点池、四道筛选闸的初步判定、对假设方向的裁决。</div>
+  </section>
+
+  <section id="ch4">
+    <h2 class="ch">4 · 数据可行性（L2）</h2>
+    <div class="todo">待 DEPLOY-002（通用数据手册）+ 后续专项任务完成。</div>
+  </section>
+
+  <section id="ch5">
+    <h2 class="ch">5 · 技术可行性（L3）</h2>
+    <div class="todo">待 L1 收敛出候选方向后下发。</div>
+  </section>
+
+  <section id="ch6">
+    <h2 class="ch">6 · 竞品与差异化（L4）</h2>
+    <div class="todo">待 L1 收敛出候选方向后下发。</div>
+  </section>
+
+  <!-- ═══════════ 第 7 章 · 核心 ═══════════ -->
+  <section id="ch7">
+    <h2 class="ch">7 · 方向簇建议与论证（L5）</h2>
+    <div class="callout">
+      <div class="t">本章为报告核心</div>
+      不收敛到单一选题，而是提出<strong>一组相近方向</strong>：共享同一核心洞察与技术底座，在应用场景、数据来源、目标对象上分化。
+    </div>
+    <h3>7.1 共同底座</h3>
+    <div class="todo">这批方向共享的核心洞察与技术能力。</div>
+    <h3>7.2 方向对比矩阵</h3>
+    <div class="todo">各方向的场景 / 数据 / 技术 / 风险 / 团队适配度对照表。</div>
+    <h3>7.3 各方向详述</h3>
+    <div class="todo">核心命题、数据来源、技术方案、差异化点、主要风险。</div>
+    <h3>7.4 主推建议与理由</h3>
+    <div class="todo">推荐方向及论证。</div>
+    <h3>7.5 切换成本评估</h3>
+    <div class="todo">主推方向受阻时，能否低成本切换到簇内其他方向。</div>
+  </section>
+
+  <section id="ch8">
+    <h2 class="ch">8 · 风险与执行路径</h2>
+    <div class="todo">含「未验证假设」清单 —— 团队能力缺口、时间投入、指导教师等未能核实的信息。</div>
+  </section>
+
+  <!-- ═══════════ 参考文献 ═══════════ -->
+  <section id="refs">
+    <h2 class="ch">参考文献</h2>
+    <div class="todo">待采集完成后汇总。格式：编号 · 标题 · URL · 访问日期 · 证据强度。</div>
+  </section>
+
+  <section id="appendix">
+    <h2 class="ch">附录</h2>
+    <div class="todo">原始材料索引：docs/前期调研/10-素材/ 下的文件清单。</div>
+  </section>
+
+  <footer>
+    <strong>CMSS-17 前期调研报告</strong><br>
+    调研与撰写：<a href="https://github.com/spinner-bot" target="_blank" rel="noopener">spinner-bot</a>（张锐寒）· 河海大学 人工智能与自动化学院<br>
+    团队：杨芮 · 刘诗蓉 · 沈舒畅<br>
+    协作工具：Claude Code (local) · Codex (local)<br>
+    生成日期：2026-10-15 · 本报告所有事实性结论均标注来源与证据强度
+  </footer>
+
+</div>
+</body>
+</html>
