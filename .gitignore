@@ -1,0 +1,20 @@
+# 系统 / 编辑器
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# 临时文件
+*.tmp
+*.log
+__pycache__/
+node_modules/
+
+# Claude Code 本地设置
+.claude/settings.local.json
