@@ -8,31 +8,32 @@
   :root{
     --ink:#1a1a1a; --ink-2:#5a5f66; --accent:#1f4e79; --warn:#c0504d;
     --line:#e3e6ea; --bg:#ffffff; --quote:#f7f8fa;
-    --max:800px;
+    --max:820px;
   }
   *{box-sizing:border-box;}
   html{-webkit-text-size-adjust:100%;}
-  body{
-    margin:0; background:var(--bg); color:var(--ink);
+  body{margin:0; background:var(--bg); color:var(--ink);
     font-family:"Noto Serif SC","Source Han Serif SC","Songti SC",Georgia,serif;
-    font-size:16px; line-height:1.8;
-  }
+    font-size:16px; line-height:1.8;}
   .wrap{max-width:var(--max); margin:0 auto; padding:64px 24px 96px;}
   .sans{font-family:"Inter",-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;}
 
-  /* ---------- 封面 ---------- */
   .cover{padding:64px 0 56px; border-bottom:2px solid var(--accent); margin-bottom:56px;}
-  .cover .kicker{
-    font-family:"Inter",sans-serif; font-size:.78rem; letter-spacing:.18em;
-    text-transform:uppercase; color:var(--accent); font-weight:600; margin-bottom:20px;
-  }
+  .cover .kicker{font-family:"Inter",sans-serif; font-size:.78rem; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--accent); font-weight:600; margin-bottom:20px;}
   .cover h1{font-size:2.15rem; line-height:1.35; margin:0 0 14px; letter-spacing:-.01em;}
   .cover .sub{font-size:1.02rem; color:var(--ink-2); margin:0 0 32px;}
   .byline{font-family:"Inter",sans-serif; font-size:.86rem; color:var(--ink-2); line-height:2;}
   .byline a{color:var(--accent); text-decoration:none; border-bottom:1px solid rgba(31,78,121,.35);}
   .byline a:hover{border-bottom-color:var(--accent);}
 
-  /* ---------- 摘要 ---------- */
+  .alert{background:#fdf6f5; border:1px solid #eecdcc; border-left:4px solid var(--warn);
+    padding:20px 24px; margin:0 0 32px; border-radius:0 4px 4px 0;}
+  .alert .t{font-family:"Inter",sans-serif; font-weight:700; color:var(--warn);
+    font-size:.82rem; letter-spacing:.06em; text-transform:uppercase; margin-bottom:8px;}
+  .alert p{margin:0 0 8px; font-size:.94rem;}
+  .alert p:last-child{margin-bottom:0;}
+
   .abstract{background:var(--quote); border-left:3px solid var(--accent);
     padding:24px 28px; margin:0 0 56px; border-radius:0 4px 4px 0;}
   .abstract h2{margin:0 0 12px; font-size:1rem; font-family:"Inter",sans-serif;
@@ -40,7 +41,6 @@
   .abstract p{margin:0 0 12px; font-size:.95rem;}
   .abstract p:last-child{margin-bottom:0;}
 
-  /* ---------- 目录 ---------- */
   nav.toc{border:1px solid var(--line); border-radius:4px; padding:24px 28px; margin:0 0 64px;}
   nav.toc h2{margin:0 0 14px; font-size:.95rem; font-family:"Inter",sans-serif;
     letter-spacing:.06em; text-transform:uppercase; color:var(--ink-2);}
@@ -48,64 +48,50 @@
   nav.toc li{margin:7px 0;}
   nav.toc a{color:var(--ink); text-decoration:none;}
   nav.toc a:hover{color:var(--accent);}
-  nav.toc .sub-i{list-style:none; padding-left:0; color:var(--ink-2); font-size:.85rem; margin:2px 0 2px 0;}
 
-  /* ---------- 章节 ---------- */
   section{margin:0 0 64px;}
   h2.ch{font-size:1.42rem; margin:0 0 22px; padding-left:16px; position:relative; line-height:1.4;}
   h2.ch::before{content:""; position:absolute; left:0; top:.16em; bottom:.16em;
     width:3px; background:var(--accent); border-radius:2px;}
-  h3{font-size:1.08rem; margin:32px 0 12px;}
+  h3{font-size:1.08rem; margin:34px 0 12px;}
   h4{font-size:.98rem; margin:24px 0 10px; color:var(--ink-2);}
   p{margin:0 0 1em;}
   ul,ol{padding-left:1.5em;}
   li{margin:.4em 0;}
-  strong{font-weight:700;}
 
-  /* ---------- 表格 ---------- */
-  table{width:100%; border-collapse:collapse; margin:20px 0; font-size:.9rem;}
+  table{width:100%; border-collapse:collapse; margin:20px 0; font-size:.88rem;}
   th,td{border:1px solid var(--line); padding:9px 12px; text-align:left; vertical-align:top;}
-  th{background:var(--quote); font-weight:600; font-family:"Inter",sans-serif; font-size:.84rem;}
+  th{background:var(--quote); font-weight:600; font-family:"Inter",sans-serif; font-size:.82rem;}
   .scroll{overflow-x:auto;}
+  td.num{text-align:right; font-family:"Inter",sans-serif; white-space:nowrap;}
+  tr.hl td{background:#f4f8fb;}
 
-  /* ---------- 引用块 ---------- */
   blockquote{margin:20px 0; padding:14px 20px; background:var(--quote);
     border-left:3px solid var(--line); color:var(--ink-2); font-size:.94rem;}
   blockquote p:last-child{margin-bottom:0;}
 
-  /* ---------- 证据强度徽章 ---------- */
   .ev{display:inline-block; font-family:"Inter",sans-serif; font-size:.7rem;
     font-weight:600; padding:1px 7px; border-radius:3px; vertical-align:1px;
     letter-spacing:.04em; white-space:nowrap;}
-  .ev-s{background:#e7f0e8; color:#2f6b3a;}   /* 强 */
-  .ev-m{background:#eceef1; color:#5a5f66;}   /* 中 */
-  .ev-w{background:#fbeceb; color:#a8453f;}   /* 弱 */
-  sup.src{font-family:"Inter",sans-serif; font-size:.7rem; color:var(--accent);
-    font-weight:600; margin-left:2px;}
+  .ev-s{background:#e7f0e8; color:#2f6b3a;}
+  .ev-m{background:#eceef1; color:#5a5f66;}
+  .ev-w{background:#fbeceb; color:#a8453f;}
 
-  /* ---------- 警示框 ---------- */
-  .callout{border:1px solid #eecdcc; background:#fdf6f5; border-left:3px solid var(--warn);
+  .callout{border:1px solid #e3e6ea; background:var(--quote); border-left:3px solid var(--accent);
     padding:16px 20px; margin:20px 0; border-radius:0 4px 4px 0; font-size:.94rem;}
-  .callout .t{font-family:"Inter",sans-serif; font-weight:600; color:var(--warn);
-    font-size:.8rem; letter-spacing:.06em; text-transform:uppercase; margin-bottom:6px;}
+  .callout .t{font-family:"Inter",sans-serif; font-weight:600; color:var(--accent);
+    font-size:.78rem; letter-spacing:.06em; text-transform:uppercase; margin-bottom:6px;}
+  .callout p:last-child{margin-bottom:0;}
 
-  /* ---------- 图表 ---------- */
   figure{margin:28px 0;}
   figure svg{width:100%; height:auto; display:block;}
   figcaption{font-family:"Inter",sans-serif; font-size:.8rem; color:var(--ink-2);
     margin-top:10px; text-align:center;}
 
-  /* ---------- 占位 ---------- */
-  .todo{background:#fffaf0; border:1px dashed #e0c89a; color:#8a6d3b;
-    padding:14px 18px; border-radius:4px; font-family:"Inter",sans-serif;
-    font-size:.86rem; margin:16px 0;}
-
-  /* ---------- 页脚 ---------- */
   footer{border-top:1px solid var(--line); margin-top:80px; padding-top:28px;
     font-family:"Inter",sans-serif; font-size:.84rem; color:var(--ink-2); line-height:1.9;}
   footer a{color:var(--accent); text-decoration:none; border-bottom:1px solid rgba(31,78,121,.35);}
 
-  /* ---------- 打印 ---------- */
   @media print{
     body{font-size:11.5pt;}
     .wrap{padding:0; max-width:none;}
@@ -122,7 +108,6 @@
 <body>
 <div class="wrap">
 
-  <!-- ═══════════ 封面 ═══════════ -->
   <header class="cover">
     <div class="kicker">CMSS-17 · 前期调研报告</div>
     <h1>正大杯参赛选题的前期调研</h1>
@@ -135,13 +120,23 @@
     </div>
   </header>
 
-  <!-- ═══════════ 摘要 ═══════════ -->
-  <div class="abstract">
-    <h2>摘要 Executive Summary</h2>
-    <div class="todo">待 L5 收敛完成后撰写。需一页读完：核心结论、关键依据、推荐的方向簇。</div>
+  <div class="alert">
+    <div class="t">⚠️ 最紧急事项</div>
+    <p><strong>第十七届报名截止（本科组）为 2026 年 10 月 31 日</strong>，且各高校校赛报名截止普遍更早（部分高校为 10 月 25–28 日）。</p>
+    <p>另需注意：<strong>知识赛（个人网测）是参加实践赛的前置条件</strong>，须确认全体成员已完成。</p>
+    <p>本校（河海大学）该赛事由<strong>商学院</strong>组织，历届均有参赛并获奖。本校今年的校赛通知在公开检索中未找到，建议直接查阅河海大学商学院官网。</p>
   </div>
 
-  <!-- ═══════════ 目录 ═══════════ -->
+  <div class="abstract">
+    <h2>摘要 Executive Summary</h2>
+    <p><strong>本报告用客观事实推导选题，而非为既定选题背书。</strong>调研沿 L0 约束识别 → L1 机会识别 → L2 数据可行性 → L3 技术可行性 → L4 竞品扫描 → L5 方向收敛 的链条逐级推进，每一级结论均有来源与证据强度标注。</p>
+    <p><strong>核心结论：</strong>推荐方向簇 —— <strong>以「价值—价格」为核心视角的消费市场调查</strong>；主推方向为 <strong>「二手商品的成色认知与折价机制」</strong>，备选可低成本切换至「以旧换新折价感知」或「新品质价比与溢价边界」。</p>
+    <p><strong>三条关键依据：</strong></p>
+    <p>① <strong>评分表把 65 分给了调研执行</strong>（方案设计 20 + 调查实施 20 + 分析与结论 25），而「研究创新」仅 3 分 —— 本赛事奖励扎实的调查，不奖励技术炫技。</p>
+    <p>② <strong>团队的稀缺性是财务专业纵深</strong>，而非 AI 技术。「价值—价格」恰是财务训练能直接变现、而多数参赛队做不到的分析层次。</p>
+    <p>③ <strong>赛场上存在真实空白</strong>：无论正大杯既有作品还是业界实践，二手/消费领域几乎无人从「定价与价值」角度切入。</p>
+  </div>
+
   <nav class="toc">
     <h2>目录</h2>
     <ol>
@@ -149,19 +144,19 @@
       <li><a href="#ch2">赛事约束分析（L0）</a></li>
       <li><a href="#ch3">市场机会识别（L1）</a></li>
       <li><a href="#ch4">数据可行性（L2）</a></li>
-      <li><a href="#ch5">技术可行性（L3）</a></li>
-      <li><a href="#ch6">竞品与差异化（L4）</a></li>
+      <li><a href="#ch5">分析方法可行性（L3）</a></li>
+      <li><a href="#ch6">竞品与既有研究扫描（L4）</a></li>
       <li><a href="#ch7">方向簇建议与论证（L5）</a></li>
       <li><a href="#ch8">风险与执行路径</a></li>
       <li><a href="#refs">参考文献</a></li>
-      <li><a href="#appendix">附录</a></li>
+      <li><a href="#appendix">附录与材料索引</a></li>
     </ol>
   </nav>
 
-  <!-- ═══════════ 第 1 章 ═══════════ -->
+  <!-- ═══ 1 ═══ -->
   <section id="ch1">
     <h2 class="ch">1 · 调研背景与方法</h2>
-    <p>本报告不是为某个既定选题做背书，而是用客观事实把选题「推导」出来。为此建立了一条自约束识别到方向收敛的逐级论证链条，每一级的结论都必须有据可查。</p>
+    <p>团队尚未确认选题方向。本调研的目的，是用客观事实把选题<strong>推导</strong>出来 —— 而非先有方向再找证据。</p>
 
     <figure>
       <svg viewBox="0 0 780 250" xmlns="http://www.w3.org/2000/svg" role="img"
@@ -172,44 +167,43 @@
           </marker>
         </defs>
         <g font-family="Inter,sans-serif" font-size="12" fill="#1a1a1a">
-          <!-- L0 -->
           <rect x="14" y="30" width="104" height="58" rx="4" fill="#eef3f8" stroke="#1f4e79" stroke-width="1.4"/>
           <text x="66" y="53" text-anchor="middle" font-weight="600" fill="#1f4e79">L0 约束识别</text>
           <text x="66" y="71" text-anchor="middle" font-size="10" fill="#5a5f66">赛事 + 团队禀赋</text>
-          <!-- L1 -->
+
           <rect x="146" y="30" width="104" height="58" rx="4" fill="#fff" stroke="#e3e6ea" stroke-width="1.4"/>
           <text x="198" y="53" text-anchor="middle" font-weight="600">L1 机会识别</text>
-          <text x="198" y="71" text-anchor="middle" font-size="10" fill="#5a5f66">真实需求痛点</text>
-          <!-- L2 -->
+          <text x="198" y="71" text-anchor="middle" font-size="10" fill="#5a5f66">候选命题池</text>
+
           <rect x="278" y="30" width="104" height="58" rx="4" fill="#fdf6f5" stroke="#c0504d" stroke-width="1.4"/>
           <text x="330" y="53" text-anchor="middle" font-weight="600" fill="#c0504d">L2 数据可行性</text>
           <text x="330" y="71" text-anchor="middle" font-size="10" fill="#5a5f66">关键筛选闸</text>
-          <!-- L3 -->
+
           <rect x="410" y="30" width="104" height="58" rx="4" fill="#fff" stroke="#e3e6ea" stroke-width="1.4"/>
-          <text x="462" y="53" text-anchor="middle" font-weight="600">L3 技术可行性</text>
-          <text x="462" y="71" text-anchor="middle" font-size="10" fill="#5a5f66">AI 增量</text>
-          <!-- L4 -->
+          <text x="462" y="53" text-anchor="middle" font-weight="600">L3 方法可行性</text>
+          <text x="462" y="71" text-anchor="middle" font-size="10" fill="#5a5f66">分析工具箱</text>
+
           <rect x="542" y="30" width="104" height="58" rx="4" fill="#fff" stroke="#e3e6ea" stroke-width="1.4"/>
           <text x="594" y="53" text-anchor="middle" font-weight="600">L4 竞品扫描</text>
-          <text x="594" y="71" text-anchor="middle" font-size="10" fill="#5a5f66">差异化</text>
-          <!-- 箭头 -->
+          <text x="594" y="71" text-anchor="middle" font-size="10" fill="#5a5f66">差异化定位</text>
+
           <line x1="118" y1="59" x2="144" y2="59" stroke="#9aa3ad" stroke-width="1.2" marker-end="url(#ar)"/>
           <line x1="250" y1="59" x2="276" y2="59" stroke="#9aa3ad" stroke-width="1.2" marker-end="url(#ar)"/>
           <line x1="382" y1="59" x2="408" y2="59" stroke="#9aa3ad" stroke-width="1.2" marker-end="url(#ar)"/>
           <line x1="514" y1="59" x2="540" y2="59" stroke="#9aa3ad" stroke-width="1.2" marker-end="url(#ar)"/>
-          <!-- 折返 → L5 -->
+
           <path d="M646,59 L700,59 L700,120 L360,120" fill="none" stroke="#9aa3ad"
                 stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#ar)"/>
-          <!-- L5 -->
+
           <rect x="200" y="146" width="160" height="58" rx="4" fill="#eef3f8" stroke="#1f4e79" stroke-width="1.8"/>
           <text x="280" y="169" text-anchor="middle" font-weight="600" fill="#1f4e79">L5 方向簇收敛</text>
           <text x="280" y="187" text-anchor="middle" font-size="10" fill="#5a5f66">多个相近方向 + 主推</text>
-          <!-- L6 -->
+
           <rect x="400" y="146" width="140" height="58" rx="4" fill="#fff" stroke="#e3e6ea" stroke-width="1.4"/>
           <text x="470" y="169" text-anchor="middle" font-weight="600">L6 报告交付</text>
           <text x="470" y="187" text-anchor="middle" font-size="10" fill="#5a5f66">HTML 交付物</text>
           <line x1="360" y1="175" x2="398" y2="175" stroke="#9aa3ad" stroke-width="1.2" marker-end="url(#ar)"/>
-          <!-- 排除说明 -->
+
           <line x1="330" y1="88" x2="330" y2="228" stroke="#c0504d" stroke-width="1.2" stroke-dasharray="3 3"/>
           <text x="338" y="228" font-size="10" fill="#c0504d">数据不可得 → 淘汰</text>
         </g>
@@ -218,69 +212,429 @@
     </figure>
 
     <h3>1.1 证据分级标准</h3>
-    <p>报告中每一项事实性结论均标注来源与证据强度。<span class="ev ev-s">强</span> 官方文件、法条原文、主办方发布的章程或评分表；<span class="ev ev-m">中</span> 高校官网通知、权威媒体报道；<span class="ev ev-w">弱</span> 自媒体、论坛、二手转述。<strong>强度为「弱」的结论不得作为方向决策的依据。</strong></p>
-    <div class="todo">待补充：完整的来源编号体系与引用格式说明。</div>
+    <p>报告中每一项事实性结论均标注来源与证据强度。<span class="ev ev-s">强</span> 官方文件、主办方发布的章程或评分表、法条原文；<span class="ev ev-m">中</span> 高校官网通知、权威媒体报道、券商与咨询机构报告；<span class="ev ev-w">弱</span> 自媒体、论坛、二手转述。<strong>强度为「弱」的结论不得作为方向决策依据。</strong></p>
+
+    <div class="callout">
+      <div class="t">方法说明</div>
+      <p>本调研采用「主干—支线」双工作流：关键路径上的判断与分析由主负责人独立完成，体量大的素材采集可并行外包，但<strong>不阻塞主干推进</strong>。本报告的全部结论均出自主干路径。</p>
+    </div>
   </section>
 
-  <!-- ═══════════ 第 2 章 ═══════════ -->
+  <!-- ═══ 2 ═══ -->
   <section id="ch2">
     <h2 class="ch">2 · 赛事约束分析（L0）</h2>
-    <div class="todo">待 DEPLOY-001 完成。将覆盖：赛事主体、参赛规则、赛道与组别、提交物与评分细则、往届获奖选题分布、AI 相关线索。</div>
+
+    <h3>2.1 赛事主体</h3>
+    <table>
+      <tr><th style="width:30%">项目</th><th>内容</th></tr>
+      <tr><td>全称</td><td>「正大杯」全国大学生市场调查与分析大赛</td></tr>
+      <tr><td>主办</td><td><strong>中国商业统计学会</strong>（冠名：正大集团）</td></tr>
+      <tr><td>创办 / 届数</td><td>创办于 2010 年，已举办 16 届；<strong>当前备赛为第十七届</strong>，2026-09-28 启动</td></tr>
+      <tr><td>赛事层级</td><td>连续多年纳入《全国普通高校大学生竞赛榜单》<span class="ev ev-m">中</span></td></tr>
+      <tr><td>规模</td><td>覆盖 34 个省级行政区、1400 多所高校、累计超 180 万名学生参赛</td></tr>
+      <tr><td>组别</td><td>专科组 / 本科组 / 研究生组 / 在华留学生组</td></tr>
+    </table>
+
+    <h3>2.2 参赛规则</h3>
+    <ul>
+      <li>每队 <strong>3–5 名学生</strong> + 1–3 名指导教师；学生只能参加 1 个团队</li>
+      <li><strong>团队成员必须来自同一所高校</strong>；鼓励跨专业、跨院系组队</li>
+      <li>两个阶段：<strong>知识赛</strong>（个人在线网考）+ <strong>实践赛</strong>（团体赛）</li>
+      <li>实践赛路径：<strong>校赛 → 企业命题赛 → 省赛 → 全国总决赛</strong></li>
+    </ul>
+
+    <h3>2.3 赛道与组别</h3>
+    <p>按选题来源分为<strong>自主选题</strong>与<strong>企业命题</strong>。企业命题赛由全国大赛组委会与命题企业共同组织报告评审，<strong>设有国赛直通名额</strong>（不占省赛名额）。</p>
+    <p>第十六届命题企业包括：正大、益普索、问卷网、天津龙康食品、同方知网、浙江中国科技五金城集团。其中<strong>正大选题为产品赛道 15 个 + 品牌赛道 15 个</strong>国赛直通名额。<span class="ev ev-s">强</span></p>
+    <p><strong>⚠️ 第十七届的具体命题题目尚未公布</strong>，企业命题解读时间为 <strong>2026-11-18 至 11-30</strong>。届时若有契合「价值—价格」视角的命题，可作为方向簇之外的备选路径。</p>
+
+    <h3>2.4 评分标准 ★ 本报告最关键的依据</h3>
+    <p>本科组报告打分表（满分 100）：</p>
+    <div class="scroll">
+    <table>
+      <tr><th>序</th><th>打分项目</th><th>评价指标</th><th class="num">分值</th></tr>
+      <tr><td>1</td><td>研究选题</td><td>选题新颖，有实际应用价值</td><td class="num">10</td></tr>
+      <tr><td>2</td><td>文献研究</td><td>选择与选题有关的文献和方案研究</td><td class="num">7</td></tr>
+      <tr class="hl"><td>3</td><td><strong>方案设计</strong></td><td>完整性、科学性、合理性和可行性</td><td class="num"><strong>20</strong></td></tr>
+      <tr class="hl"><td>4</td><td><strong>调查实施</strong></td><td>组织科学合理，过程完整清晰，数据处理严谨，质量控制有效</td><td class="num"><strong>20</strong></td></tr>
+      <tr class="hl"><td>5</td><td><strong>分析与结论</strong></td><td>数据运用充分，分析方法科学合理、支持结论，建议具有可操作性</td><td class="num"><strong>25</strong></td></tr>
+      <tr><td>6</td><td>报告文本</td><td>逻辑清晰，格式规范，文本精炼，图文生动，可读性强</td><td class="num">15</td></tr>
+      <tr><td>7</td><td>研究创新</td><td>在方案设计、数据采集、分析方法、结论等方面有突出表现</td><td class="num">3</td></tr>
+    </table>
+    </div>
+
+    <div class="callout">
+      <div class="t">🔑 最高价值推论</div>
+      <p>第 3、4、5 项合计 <strong>65 分</strong>，全部指向<strong>调研执行的扎实程度</strong>；而第 7 项「研究创新」<strong>仅 3 分</strong>。</p>
+      <p>结论：<strong>本赛事奖励扎实的调查，不奖励技术炫技。</strong>这直接否定了「用炫酷 AI 技术取胜」的策略路径 —— AI 只能是提升调查质量的手段，不能是作品本身的核心卖点。</p>
+    </div>
+
+    <p>成绩计算方式：校赛与国赛初赛为 <strong>70% 报告分 + 30% PPT 分</strong>；国赛决赛为 <strong>50% 报告分 + 50% 展示答辩分</strong>。</p>
+
+    <h3>2.5 硬性约束与红线</h3>
+    <ul>
+      <li>报告正文（国赛本科组）<strong>不超过 65 页</strong>，正文约不超过 2 万字</li>
+      <li>报告<strong>任何一页不得出现参赛校名称、标识及指导教师姓名</strong>，否则违规</li>
+      <li><strong>查重率 &gt; 20%</strong> 取消成绩与资格；<strong>&gt; 40%</strong> 视为学术不端并官网通报</li>
+      <li>报告与 PPT 使用中国地图必须规范（信息完整的最新版），否则取消资格</li>
+      <li><strong>AI 工具允许使用</strong>，但须公开透明，<strong>核心调查与分析必须由参赛队独立完成</strong>；附录须提交 AI 工具使用情况说明</li>
+      <li>须提交参赛承诺书；附录鼓励提供调查过程照片与原始数据</li>
+    </ul>
+
+    <h3>2.6 往届获奖选题观察</h3>
+    <p>第十六届本科组共评出国赛一等奖 185 项、二等奖 248 项。部分获奖选题呈现出清晰的模式：</p>
+    <table>
+      <tr><th style="width:24%">学校</th><th>选题</th></tr>
+      <tr><td>北京化工大学</td><td>"京"味人间，"正"大在心——北京市正大速冻饺子品牌健康度与形象研究</td></tr>
+      <tr><td>沈阳工业大学</td><td>一口鲜香 安心品尝——正大鲜猪肉饺子顾客忠诚度影响因素调查分析</td></tr>
+      <tr><td>华南农业大学</td><td>"便老"还是"变恼"——广州市适老化智能家居产品现状与消费者购买意愿影响因素调查</td></tr>
+      <tr><td>湖北经济学院</td><td>因"潮"心动，为"玩"买单——基于 Labubu 的 Z 世代潮玩消费机制研究</td></tr>
+      <tr><td>北京交通大学</td><td>展翼入万家，云路启未来——新发展格局下低空物流消费意愿及商业化路径研究</td></tr>
+      <tr><td>上海工程技术大学</td><td>智启行程，游向新途——江浙沪生成式 AI 旅程规划工具使用现状与潜在用户研究</td></tr>
+    </table>
+
+    <p><strong>选题分布聚类</strong>：AI 与数字化应用、银发经济与养老服务、乡村振兴与共同富裕、情绪经济与 Z 世代消费、正大企业命题（均为食品消费品牌）、城市文旅与夜间经济。</p>
+
+    <div class="callout">
+      <div class="t">格式观察</div>
+      <p>获奖标题几乎清一色采用「<strong>四字或八字对仗短句 + 破折号 + 具体研究对象</strong>」的文学化命名范式。这是可直接复用的形式经验。</p>
+    </div>
   </section>
 
+  <!-- ═══ 3 ═══ -->
   <section id="ch3">
     <h2 class="ch">3 · 市场机会识别（L1）</h2>
-    <div class="todo">待 DEPLOY-003 完成。将覆盖：痛点池、四道筛选闸的初步判定、对假设方向的裁决。</div>
+
+    <h3>3.1 先修正一个方向性错误</h3>
+    <p>立项时的表述是「解决真实运营环境下的痛点」，这容易把方向引向<strong>创业式思维</strong> —— 找一个痛点做一个解决方案。但 L0 的证据不支持这个框架：获奖作品清一色是<strong>市场调查</strong>，是<em>研究</em>，不是<em>产品方案</em>。评分表也印证 —— 25 分给的是「分析与结论」，而非「方案有多完整」。</p>
+    <p>因此本层的目标修正为：<strong>不找「痛点 + 解决方案」，而找「一个值得做、做得出、析得深、还不算撞车的调研命题」。</strong></p>
+
+    <h3>3.2 核心发现：一个被整个赛场忽略的角度</h3>
+    <blockquote>
+      <p>正大杯获奖选题的分析落脚点绝大多数是<strong>意愿</strong>（购买意愿、参与意愿、采纳意愿）、<strong>满意度</strong>、<strong>影响因素</strong>。而评分表把 25 分给了「分析与结论」。</p>
+      <p><strong>谁能把「价格 / 成本 / 价值」这条财务—经济学的分析线做进来，谁就天然多一层别人做不出的深度。</strong></p>
+    </blockquote>
+
+    <h3>3.3 候选命题</h3>
+
+    <h4>★ P1 · 二手商品的成色分级与折价机制</h4>
+    <p><strong>真实痛点（有硬数据支撑）</strong></p>
+    <ul>
+      <li>卖方首要痛点：平台同品定价不一、价格难把控且易被砍价 —— <strong>58.49%</strong><span class="ev ev-m">中</span></li>
+      <li>商品质量分级标准缺失，"轻微使用痕迹"等模糊表述导致<strong>"定价无据、维权无门"</strong><span class="ev ev-m">中</span></li>
+      <li>买方 55.62% 遇信息不透明或卖家隐瞒成色<span class="ev ev-m">中</span></li>
+      <li>同一 95 新 LV 包不同渠道售价 <strong>1.05–1.6 万元</strong>；同型号二手手机因外观配件差异<strong>价差 30%–50%</strong><span class="ev ev-m">中</span></li>
+    </ul>
+    <p><strong>行业现状（可支撑深度分析）</strong></p>
+    <ul>
+      <li>成色体系<strong>极不统一</strong>：6 级制（衍生出 9 级）vs N/S/A/B 四级制</li>
+      <li>头部平台正通过<strong>深化等级</strong>压缩价差：爱回收从 ABCDE 五级 → <strong>36 个质检等级</strong></li>
+      <li>保值率参考（奢侈品）：N 级 100–110%、S 级 85–100%、A 级 70–85%、<strong>B 级 50% 以下</strong>；差一级价差 20–50%，<strong>N 级与 B 级极端可差 3 倍</strong></li>
+      <li>附件齐全比裸包贵 <strong>20–30%</strong>；硬伤每项降价 <strong>500–800 元</strong><span class="ev ev-m">中</span></li>
+    </ul>
+    <p><strong>政策时机</strong>：发改委《循环经济发展"十五五"规划》明确"规范二手商品流通交易发展"；团体标准《品牌消费品鉴定通用技术规范 外观成色定级》已立项（P/CIQA-226-2025）。<span class="ev ev-m">中</span></p>
+
+    <h4>○ P2 · 新消费品的质价比感知与支付意愿</h4>
+    <ul>
+      <li>2026 快消市场「量增价跌」：销量 <strong>+3.6%</strong>，均价 <strong>−2.6%</strong><span class="ev ev-m">中</span></li>
+      <li>价格带「<strong>哑铃化</strong>」：高端与极致性价比两端增长，<strong>中间价格带承压</strong><span class="ev ev-m">中</span></li>
+      <li><strong>76%</strong> 消费者愿为安全溯源、匠心工艺、情绪治愈支付合理溢价；<strong>68%</strong> 建立月度预算台账，<strong>71%</strong> 跨平台比价<span class="ev ev-m">中</span></li>
+    </ul>
+
+    <h4>○ P3 · 消费品以旧换新中的折价感知</h4>
+    <p>国家「以旧换新」为 2025–2026 国策，覆盖家电、汽车、数码。与 P1 共享"旧物折价"内核，场景换成政策驱动。</p>
+
+    <h4>○ P4 · 二手消费品的「保值 / 投资」属性</h4>
+    <p>从投资学视角研究二手奢侈品/潮玩的保值属性。差异化强，但目标人群小众，样本获取是主要风险。</p>
+
+    <h3>3.4 被淘汰的候选域</h3>
+    <table>
+      <tr><th style="width:26%">候选域</th><th>淘汰理由</th></tr>
+      <tr><td>银发经济</td><td><strong>撞车极高</strong> —— 往届已有"银龄生活新图景"等大量同类作品；且财务纵深难嵌入</td></tr>
+      <tr><td>文旅 / 夜间经济</td><td>撞车高（大量地方文旅调研），财务纵深无处安放</td></tr>
+      <tr><td>消费金融</td><td>敏感话题，样本易有社会期许偏差，一手数据获取困难</td></tr>
+      <tr><td>AI 产品采纳</td><td><strong>撞车极高</strong>（往届已泛滥）；且研究创新仅 3 分，AI 本身不构成得分点</td></tr>
+    </table>
+
+    <h3>3.5 L1 结论</h3>
+    <p>收敛到一个共同底座：<strong>以「价值—价格」为核心视角的消费市场调查</strong> —— 不研究"消费者喜不喜欢"，而研究<strong>"消费者认为值多少钱、为什么值这个价、怎么定价才合理"</strong>。P1–P4 是这个底座在不同场景下的展开。</p>
   </section>
 
+  <!-- ═══ 4 ═══ -->
   <section id="ch4">
     <h2 class="ch">4 · 数据可行性（L2）</h2>
-    <div class="todo">待 DEPLOY-002（通用数据手册）+ 后续专项任务完成。</div>
+    <p>L2 是本项目最大的不确定性来源 —— 正大杯是市场调查赛事，没有数据就没有调查。采用七维度评分量表（满分 100）：</p>
+
+    <div class="scroll">
+    <table>
+      <tr>
+        <th>命题</th><th class="num">D1<br>合法性<br>/20</th><th class="num">D2<br>可获得<br>/20</th>
+        <th class="num">D3<br>颗粒度<br>/15</th><th class="num">D4<br>时效<br>/10</th>
+        <th class="num">D5<br>规模<br>/15</th><th class="num">D6<br>成本<br>/10</th>
+        <th class="num">D7<br>可验证<br>/10</th><th class="num">总分</th><th>判定</th>
+      </tr>
+      <tr class="hl"><td><strong>P1 二手成色与折价</strong></td><td class="num">17</td><td class="num">16</td><td class="num">14</td><td class="num">10</td><td class="num">12</td><td class="num">9</td><td class="num">9</td><td class="num"><strong>87</strong></td><td>✅ 可行</td></tr>
+      <tr><td>P2 质价比与支付意愿</td><td class="num">19</td><td class="num">18</td><td class="num">13</td><td class="num">10</td><td class="num">13</td><td class="num">9</td><td class="num">9</td><td class="num">91</td><td>✅ 可行</td></tr>
+      <tr><td>P3 以旧换新折价感知</td><td class="num">19</td><td class="num">17</td><td class="num">13</td><td class="num">10</td><td class="num">12</td><td class="num">8</td><td class="num">9</td><td class="num">88</td><td>✅ 可行</td></tr>
+      <tr><td>P4 保值 / 投资属性</td><td class="num">17</td><td class="num">13</td><td class="num">12</td><td class="num">10</td><td class="num">8</td><td class="num">8</td><td class="num">8</td><td class="num">76</td><td>⚠️ 存疑</td></tr>
+    </table>
+    </div>
+
+    <p><strong>四项均未触发一票否决</strong>（无实质法律风险；不依赖内部、假设或编造数据）。</p>
+
+    <div class="callout">
+      <div class="t">注意：得分高 ≠ 该选它</div>
+      <p>P2 可行性得分最高（91），但可行性只是<strong>必要条件</strong>。P2 的撞车风险显著高于 P1 —— 决策须同时考虑差异化与团队适配。</p>
+    </div>
+
+    <h3>4.1 三条关键风险</h3>
+    <ol>
+      <li><strong>P1 的最大风险是抽样。</strong>二手研究的既有作品几乎全部陷在"大学生样本"里 —— 这既是它们撞车的原因，也是它们分析浅的原因。若主推 P1，抽样方案<strong>必须突破校园人群</strong>。这恰是「方案设计（20 分）」要解决的问题。</li>
+      <li><strong>平台数据的合规边界须先厘清。</strong>建议以一手调研为数据主体，平台信息仅作公开可见内容的轻量采样，不采用批量爬取。</li>
+      <li><strong>D7 可验证性普遍较高</strong>意味着这些领域都有公开行业报告 —— 若研究只重复公开结论就没有增量，必须靠一手数据做出公开报告没有的东西。</li>
+    </ol>
   </section>
 
+  <!-- ═══ 5 ═══ -->
   <section id="ch5">
-    <h2 class="ch">5 · 技术可行性（L3）</h2>
-    <div class="todo">待 L1 收敛出候选方向后下发。</div>
+    <h2 class="ch">5 · 分析方法可行性（L3）</h2>
+
+    <h3>5.1 本项目里的「技术」是什么</h3>
+    <p>在这个赛事里，「技术可行性」<strong>不是</strong>指 AI 模型能力 —— L0 已证明「研究创新」只占 3 分，AI 只能是提效工具。<strong>真正的技术 = 分析方法能做到多深</strong>，而「分析与结论」值 25 分，是全表单项最高。</p>
+
+    <div class="scroll">
+    <table>
+      <tr><th>方法</th><th>用途</th><th>适配</th><th>难度</th></tr>
+      <tr class="hl"><td><strong>特征价格模型</strong> Hedonic Pricing</td><td>把价格分解到各属性（成色、品牌、附件、瑕疵）的边际贡献</td><td>P1</td><td>中高</td></tr>
+      <tr><td>联合分析 Conjoint</td><td>测算各属性对消费者效用的权重，反推支付意愿</td><td>P1、P2</td><td>高</td></tr>
+      <tr><td>Gabor-Granger / Van Westendorp</td><td>价格阶梯测试，找最优价格点与可接受区间</td><td>P2、P3</td><td>中</td></tr>
+      <tr><td>多元回归 / 逻辑回归</td><td>影响因素分析（常规但可靠）</td><td>全部</td><td>低</td></tr>
+      <tr><td>结构方程模型 SEM</td><td>多路径机制检验</td><td>P1、P2</td><td>中高</td></tr>
+    </table>
+    </div>
+
+    <div class="callout">
+      <div class="t">🔑 特征价格模型是 P1 的杀手锏</div>
+      <p>它把「成色值多少钱」从<strong>主观经验</strong>变成<strong>可估计的边际价格</strong> —— 而行业痛点正是"定价无据"，这个方法<strong>直接产出一个"有据"的定价参照</strong>。</p>
+      <p>该方法在房地产、汽车残值领域成熟，<strong>在二手消费品领域应用极少</strong> —— 既有方法论的扎实性（不会被质疑），又有应用场景的新颖性。</p>
+    </div>
+
+    <h3>5.2 团队执行能力</h3>
+    <table>
+      <tr><th>环节</th><th>承担</th><th>可行性</th></tr>
+      <tr><td>问卷 / 实验方案设计</td><td>沈舒畅（统计学）+ 刘诗蓉（实地经验）</td><td>✅</td></tr>
+      <tr><td>一手数据采集</td><td>刘诗蓉主导 + 全员</td><td>✅</td></tr>
+      <tr><td>数据清洗与建模</td><td>张锐寒（Python）+ 沈舒畅（统计）</td><td>✅</td></tr>
+      <tr><td>结论与建议</td><td>沈舒畅（财务纵深）+ 全员</td><td>✅</td></tr>
+      <tr><td>报告撰写</td><td>刘诗蓉</td><td>✅</td></tr>
+    </table>
+    <p><strong>判断</strong>：特征价格模型 + 回归的复杂度完全在团队能力范围内，且建模可由张锐寒单人承担，符合「单人在赛程内可交付」的硬约束。</p>
+
+    <h3>5.3 AI 的合规角色</h3>
+    <p>L0 已确认：AI 允许使用，但<strong>核心调查与分析必须由参赛队独立完成</strong>，且附录须提交 AI 工具使用情况说明。</p>
+    <table>
+      <tr><th style="width:50%">✅ 合规的 AI 用法</th><th>❌ 越界的用法</th></tr>
+      <tr><td>文本清洗、成色描述的结构化抽取、数据可视化、代码辅助</td><td>由 AI 生成问卷、AI 直接产出分析结论、AI 代写报告主体</td></tr>
+    </table>
+    <p>建议在方案设计中就把 AI 定位写清楚，并在附录如实说明 —— 这是<strong>透明的加分项</strong>，而非风险。</p>
   </section>
 
+  <!-- ═══ 6 ═══ -->
   <section id="ch6">
-    <h2 class="ch">6 · 竞品与差异化（L4）</h2>
-    <div class="todo">待 L1 收敛出候选方向后下发。</div>
+    <h2 class="ch">6 · 竞品与既有研究扫描（L4）</h2>
+
+    <h3>6.1 正大杯既有作品（撞车分析）</h3>
+    <table>
+      <tr><th style="width:20%">届次</th><th>作品角度</th><th>与本项目的错位</th></tr>
+      <tr><td>13 届 国一</td><td>闲鱼环保<strong>营销活动接受度</strong></td><td rowspan="5">既有作品<strong>无一从"价值—价格"角度切入</strong></td></tr>
+      <tr><td>12 届 省一</td><td>旧衣回收<strong>参与意愿</strong></td></tr>
+      <tr><td>14 届 江苏</td><td>闲鱼 APP <strong>用户粘性</strong></td></tr>
+      <tr><td>15 届 北京</td><td>校园循环经济 / <strong>大学生二手书</strong></td></tr>
+      <tr><td>重庆工商</td><td>大学生二手交易<strong>现状</strong></td></tr>
+    </table>
+    <p><strong>⚠️ 必须避开</strong>：「<strong>大学生 + 二手书</strong>」是撞车重灾区。<strong>切入角度必须是「定价与折价」，而非「意愿与环保」</strong>。</p>
+
+    <h3>6.2 业界做法（平台的"解决方案"）</h3>
+    <table>
+      <tr><th style="width:22%">主体</th><th>做法</th><th>局限</th></tr>
+      <tr><td>爱回收</td><td>ABCDE 五级 → <strong>36 个质检等级</strong>；AI 图像识别自动化质检</td><td rowspan="3"><strong>供给侧视角</strong> —— 提升平台自身的质检精度，未解决消费者对成色的价值认知分歧</td></tr>
+      <tr><td>闲鱼 / 转转</td><td>大数据 + AI 智能定价引擎；评估等级模板</td></tr>
+      <tr><td>得物</td><td>先鉴别再发货</td></tr>
+      <tr><td>团体标准</td><td>《品牌消费品鉴定通用技术规范 外观成色定级》编制中</td><td>尚未发布，且侧重"定级"而非"定价"</td></tr>
+    </table>
+
+    <div class="callout">
+      <div class="t">🔑 关键空白</div>
+      <p>所有既有努力都在「如何更准确地给商品<strong>定级</strong>」（供给侧的质检问题），却几乎没有人研究「消费者如何把成色转化为<strong>价值判断</strong>」（需求侧的价值认知问题）。</p>
+      <p>这正是本项目的位置：<strong>从消费者侧回答"成色到底值多少钱"。</strong>而 58.49% 的卖方痛点（价格难把控）恰恰源于「平台定级」与「用户感知」之间的错位。</p>
+    </div>
+
+    <h3>6.3 学术方法渊源</h3>
+    <p>特征价格模型（Hedonic Pricing）由 Rosen (1974) 奠基，广泛应用于房地产、汽车、葡萄酒等差异化商品定价。在二手消费品（尤其奢侈品、3C）上的实证应用很少 —— 引用成熟方法 + 新应用场景，是「文献研究（7 分）」的稳妥打法。</p>
   </section>
 
-  <!-- ═══════════ 第 7 章 · 核心 ═══════════ -->
+  <!-- ═══ 7 ═══ -->
   <section id="ch7">
     <h2 class="ch">7 · 方向簇建议与论证（L5）</h2>
+
     <div class="callout">
       <div class="t">本章为报告核心</div>
-      不收敛到单一选题，而是提出<strong>一组相近方向</strong>：共享同一核心洞察与技术底座，在应用场景、数据来源、目标对象上分化。
+      <p>不收敛到单一选题，而是提出<strong>一组共享同一分析底座、可低成本互相切换的方向</strong> —— 因为数据可得性是本项目最大的不确定性，单一选题一旦受阻就要全盘重来。</p>
     </div>
+
     <h3>7.1 共同底座</h3>
-    <div class="todo">这批方向共享的核心洞察与技术能力。</div>
+    <blockquote>
+      <p><strong>以「价值—价格」为核心视角的消费市场调查</strong></p>
+      <p>不研究"消费者喜不喜欢"，而研究<strong>"消费者认为值多少钱、为什么值这个价、怎么定价才合理"</strong>。</p>
+    </blockquote>
+    <p><strong>这个底座的三重合理性：</strong></p>
+    <ol>
+      <li><strong>对齐评分表</strong> —— 「分析与结论」占 25 分，是单项最高。以"价值/价格"为被解释变量的分析天然需要较深建模，远高于"满意度打分 + 交叉表"的常规做法。</li>
+      <li><strong>对齐团队禀赋</strong> —— 沈舒畅的 ACCA 训练（成本、财务、会计、投资、税务）是价格与价值分析的专业基础。多数参赛队由统计或营销背景组成，做得了问卷，做不了价值分析。</li>
+      <li><strong>对齐赛场空白</strong> —— L4 扫描显示，无论正大杯既有作品还是业界实践，都罕见从"价值—价格"切入。</li>
+    </ol>
+
     <h3>7.2 方向对比矩阵</h3>
-    <div class="todo">各方向的场景 / 数据 / 技术 / 风险 / 团队适配度对照表。</div>
+    <div class="scroll">
+    <table>
+      <tr>
+        <th style="width:16%"></th>
+        <th><strong>D1 成色认知与折价机制</strong></th>
+        <th>D2 以旧换新折价感知</th>
+        <th>D3 质价比与溢价边界</th>
+        <th>D4 保值 / 投资属性</th>
+      </tr>
+      <tr><td><strong>核心命题</strong></td><td>消费者如何把"成色"转化为"价值判断"？平台定级与用户感知错位在哪？</td><td>以旧换新补贴下，旧物折价是否被补贴政策吸收？</td><td>价格带"哑铃化"下，消费者为品质与情绪支付的<strong>溢价边界</strong>在哪？</td><td>二手奢侈品/潮玩是否具备保值或投资属性？</td></tr>
+      <tr><td><strong>研究对象</strong></td><td>二手奢侈品 / 3C 数码</td><td>家电、汽车、数码以旧换新</td><td>快消品 / 新兴消费品类</td><td>二手奢侈品 / 潮玩</td></tr>
+      <tr><td><strong>数据来源</strong></td><td>估价实验 + 问卷 + 本地门店实地 + 公开在售信息轻量采样</td><td>政策文件 + 问卷 + 门店网点实地</td><td>问卷 + 价格测试实验</td><td>问卷（小众样本）</td></tr>
+      <tr><td><strong>核心方法</strong></td><td><strong>特征价格模型</strong> + 联合分析</td><td>回归 + 价格感知分析</td><td>联合分析 / Gabor-Granger / Van Westendorp</td><td>描述统计 + 回归</td></tr>
+      <tr><td><strong>财务纵深</strong></td><td>★★★★★</td><td>★★★★</td><td>★★★★</td><td>★★★★★</td></tr>
+      <tr><td><strong>数据可行性</strong></td><td>87 ✅</td><td>88 ✅</td><td>91 ✅</td><td>76 ⚠️</td></tr>
+      <tr><td><strong>撞车风险</strong></td><td><strong>低</strong></td><td>低</td><td><strong>中</strong></td><td>低</td></tr>
+      <tr><td><strong>政策热度</strong></td><td>高</td><td><strong>极高</strong></td><td>高</td><td>中</td></tr>
+      <tr><td><strong>主要风险</strong></td><td>抽样须突破校园；平台数据合规</td><td>可能滑向"政策评估"</td><td>撞车；需严谨实验设计</td><td>目标人群小众，样本不足</td></tr>
+      <tr><td><strong>团队适配</strong></td><td>★★★★★</td><td>★★★★</td><td>★★★★</td><td>★★★</td></tr>
+    </table>
+    </div>
+
     <h3>7.3 各方向详述</h3>
-    <div class="todo">核心命题、数据来源、技术方案、差异化点、主要风险。</div>
+
+    <h4>D1 · 成色认知与折价机制</h4>
+    <p>消费者在二手交易中对"成色"的价值判断，与平台定级体系之间存在系统性错位。本项目拟通过估价实验与问卷，采集消费者对不同成色商品的支付意愿，结合平台公开在售信息，用<strong>特征价格模型</strong>估计"成色—价格"的边际映射关系，并检验"平台定级"与"用户感知"的偏差。</p>
+
+    <h4>D2 · 以旧换新折价感知</h4>
+    <p>在国家以旧换新补贴政策下，消费者的实际到手价由"旧物折价 + 政策补贴"构成。本项目研究消费者对旧物折价的感知是否理性、补贴是否被商家的低折价所吸收，以及消费者如何评价"以旧换新"的真实优惠力度。</p>
+
+    <h4>D3 · 质价比与溢价边界</h4>
+    <p>在价格带"哑铃化"的结构下，中间价格带产品承压。本项目用联合分析或价格测试方法，测算消费者为安全溯源、匠心工艺、情绪价值等属性愿意支付的溢价上限，为"质价比"提供可量化的边界。</p>
+
+    <h4>D4 · 保值 / 投资属性</h4>
+    <p>从投资学视角，检验二手奢侈品或潮玩是否具备保值甚至投资属性，其定价逻辑与金融资产的异同。差异化强，但目标人群小众，样本获取是主要障碍。</p>
+
     <h3>7.4 主推建议与理由</h3>
-    <div class="todo">推荐方向及论证。</div>
+    <div class="callout">
+      <div class="t">主推方向</div>
+      <p><strong>D1 ｜ 二手商品的成色认知与折价机制</strong></p>
+      <p>建议命题表述（参照往届获奖命名范式）：<br>
+      <strong>《几分新，值几钱？——基于特征价格模型的二手商品成色-价格映射机制研究》</strong></p>
+    </div>
+    <table>
+      <tr><th style="width:34%">判据</th><th>D1 的表现</th></tr>
+      <tr><td>值不值得做（选题 10 分）</td><td>直击 58.49% 卖方的首要痛点"价格难把控"；政策与团体标准正在推进，时效性极强</td></tr>
+      <tr><td>做不做得动（方案设计 + 调查实施 40 分）</td><td>可设计<strong>估价实验</strong>（呈现不同成色描述/实物照片，请被试出价），方案设计本身即得分点；南京有实体二手市场、回收门店可实地调研</td></tr>
+      <tr><td>析不析得深（分析与结论 25 分）</td><td><strong>特征价格模型</strong>把"成色值多少钱"从主观经验变为可估计的边际价格</td></tr>
+      <tr><td>撞不撞车</td><td>既有作品<strong>无一从定价角度</strong>切入</td></tr>
+      <tr><td>团队配不配</td><td>折价率是折旧问题，与 ACCA FA/MA 和投资学<strong>直接对应</strong>；模型复杂度在张锐寒单人能力内</td></tr>
+    </table>
+
     <h3>7.5 切换成本评估</h3>
-    <div class="todo">主推方向受阻时，能否低成本切换到簇内其他方向。</div>
+    <p>这是方向簇存在的意义 —— 若主推方向在数据采集阶段受阻，可低成本转移：</p>
+    <table>
+      <tr><th style="width:20%">切换路径</th><th style="width:14%">成本</th><th>说明</th></tr>
+      <tr><td><strong>D1 → D2</strong></td><td><strong>极低</strong></td><td>同是"旧物折价"，仅将场景从"二手交易"换成"以旧换新"，问卷主体与模型可复用</td></tr>
+      <tr><td><strong>D1 → D3</strong></td><td><strong>低</strong></td><td>同是"价值—价格"，仅将对象从"二手商品"换成"新品"；特征价格模型可平移</td></tr>
+      <tr><td><strong>D1 → D4</strong></td><td>中</td><td>研究对象不变，但分析视角从"折价机制"换成"保值/投资属性"，需重构理论框架</td></tr>
+      <tr><td>D2 → D3</td><td>中高</td><td>共同底座仍在，但数据与场景全部更换</td></tr>
+    </table>
+    <p><strong>结论</strong>：若主推 D1 受阻，可低成本切换到 D2 或 D3 —— 三者共享"价值—价格"底座与大部分方法工具，<strong>前期投入不会浪费</strong>。</p>
   </section>
 
+  <!-- ═══ 8 ═══ -->
   <section id="ch8">
     <h2 class="ch">8 · 风险与执行路径</h2>
-    <div class="todo">含「未验证假设」清单 —— 团队能力缺口、时间投入、指导教师等未能核实的信息。</div>
+
+    <h3>8.1 关键风险</h3>
+    <table>
+      <tr><th style="width:24%">风险</th><th>说明</th><th style="width:14%">等级</th></tr>
+      <tr><td><strong>报名时间</strong></td><td>本科组报名截止 2026-10-31，部分校赛更早；知识赛为实践赛前置条件</td><td><strong>高</strong></td></tr>
+      <tr><td><strong>抽样质量</strong></td><td>若沿用校园便利抽样，既撞车又削弱分析可信度</td><td><strong>高</strong></td></tr>
+      <tr><td>数据合规</td><td>平台数据的采集边界须在方案中显式规避</td><td>中</td></tr>
+      <tr><td>团队能力断层</td><td>商科队友编程为"Python 基础数据处理"水平，工程实现须单人在赛程内可交付</td><td>中</td></tr>
+      <tr><td>市场研究理论缺口</td><td>团队专业训练在会计/财务，<strong>无人受过市场研究的系统训练</strong>；问卷设计与抽样理论需补足或引入指导</td><td>中</td></tr>
+      <tr><td>AI 使用规范</td><td>核心调查与分析必须独立完成，附录须说明 AI 使用情况</td><td>低</td></tr>
+    </table>
+
+    <h3>8.2 未验证假设清单</h3>
+    <p>以下信息在本次调研中<strong>未能核实</strong>，相关判断应视为未验证假设：</p>
+    <ol>
+      <li><strong>杨芮的能力画像完全空白</strong> —— 仅知"有相关项目经验"，具体项目与角色未知，无法评估其在方案中的分工</li>
+      <li><strong>校内报名与知识赛安排</strong> —— 河海大学今年的校赛通知未在公开渠道检索到</li>
+      <li><strong>指导教师情况</strong> —— 是否有指导教师、其研究方向未知</li>
+      <li><strong>四人可投入时间</strong> —— 赛程跨度内各人每周可投入时长未知，影响时间可行性判断</li>
+      <li><strong>是否强制实地调研与样本量硬性规定</strong> —— 未找到明文规定</li>
+      <li><strong>答辩主讲人选</strong> —— 未评估</li>
+    </ol>
+
+    <h3>8.3 建议的后续步骤</h3>
+    <ol>
+      <li><strong>立即确认报名与知识赛状态</strong>（最优先）</li>
+      <li>团队就方向簇进行选择 —— 本报告给出主推建议，但最终选择权在团队</li>
+      <li>补足上述未验证信息，尤其是杨芮的能力画像与时间投入</li>
+      <li>关注 2026-11-18 至 11-30 的企业命题解读，评估是否新增路径</li>
+      <li>选定方向后，进入方案设计阶段（评分表 20 分项，是仅次于分析与结论的第二大项）</li>
+    </ol>
   </section>
 
-  <!-- ═══════════ 参考文献 ═══════════ -->
+  <!-- ═══ REFS ═══ -->
   <section id="refs">
     <h2 class="ch">参考文献</h2>
-    <div class="todo">待采集完成后汇总。格式：编号 · 标题 · URL · 访问日期 · 证据强度。</div>
+    <table>
+      <tr><th style="width:5%">#</th><th>标题</th><th style="width:8%">强度</th></tr>
+      <tr><td>1</td><td>中国商业统计学会官网 · http://www.china-cssc.org/</td><td><span class="ev ev-s">强</span></td></tr>
+      <tr><td>2</td><td>关于"企业命题赛"有关事项的补充通知（本科组）· http://www.china-cssc.org/show-568-2043-1.html</td><td><span class="ev ev-s">强</span></td></tr>
+      <tr><td>3</td><td>"正大杯"第十六届…校赛及企业命题赛通知（本科组）· http://www.china-cssc.org/show-568-1969-1.html</td><td><span class="ev ev-s">强</span></td></tr>
+      <tr><td>4</td><td>中国商业统计学会文件（获奖公示）· http://www.china-cssc.org/uploadfile/20260608/1780906311835716.pdf</td><td><span class="ev ev-s">强</span></td></tr>
+      <tr><td>5</td><td>关于举办"正大杯"第十七届…（本科生组）的通知 · 安徽大学</td><td><span class="ev ev-m">中</span></td></tr>
+      <tr><td>6</td><td>"正大杯"第十七届…报名通知 · 上海外国语大学</td><td><span class="ev ev-m">中</span></td></tr>
+      <tr><td>7</td><td>关于举办"正大杯"第十七届…的通知 · 中国农业大学</td><td><span class="ev ev-m">中</span></td></tr>
+      <tr><td>8</td><td>北京师范大学珠海校区关于报名参加第十七届…的通知</td><td><span class="ev ev-m">中</span></td></tr>
+      <tr><td>9</td><td>2025-2026 年中国二手电商行业发展状况与消费者行为调研数据分析 · 艾媒咨询</td><td><span class="ev ev-m">中</span></td></tr>
+      <tr><td>10</td><td>当前浙江省二手电商规范发展存在的主要问题及对策建议 · 浙江省市场监督管理学会</td><td><span class="ev ev-m">中</span></td></tr>
+      <tr><td>11</td><td>新消费行业系列报告：万亿循环经济的黄金时代 · 华泰证券</td><td><span class="ev ev-m">中</span></td></tr>
+      <tr><td>12</td><td>《品牌消费品鉴定通用技术规范 外观成色定级》团体标准编制说明</td><td><span class="ev ev-s">强</span></td></tr>
+      <tr><td>13</td><td>《2026 年中国购物者报告》系列一 · 贝恩公司 / 纽锐拓消费者指数</td><td><span class="ev ev-m">中</span></td></tr>
+      <tr><td>14</td><td>《通往 2026：中国消费者趋势洞察》· 尼尔森 IQ</td><td><span class="ev ev-m">中</span></td></tr>
+      <tr><td>15</td><td>2026 年中国快消零售及细分行业分析报告 · 中国中小商业企业协会</td><td><span class="ev ev-m">中</span></td></tr>
+      <tr><td>16</td><td>河海大学商学院 · 第十五届全国大学生市场调查与分析大赛获奖报道</td><td><span class="ev ev-m">中</span></td></tr>
+    </table>
+    <p style="font-size:.85rem;color:var(--ink-2);">全部来源访问日期：2026-10-15。完整的来源清单与逐条对应见 <code>docs/前期调研/10-素材/001-赛事基础/sources.md</code>。</p>
   </section>
 
   <section id="appendix">
-    <h2 class="ch">附录</h2>
-    <div class="todo">原始材料索引：docs/前期调研/10-素材/ 下的文件清单。</div>
+    <h2 class="ch">附录与材料索引</h2>
+    <table>
+      <tr><th style="width:52%">文件</th><th>内容</th></tr>
+      <tr><td><code>10-素材/001-赛事基础/answers.md</code></td><td>L0 赛事基础事实的逐题作答（含未核实清单与来源表）</td></tr>
+      <tr><td><code>00-框架/团队禀赋矩阵.md</code></td><td>四人能力画像、能力缺口、对选题的约束</td></tr>
+      <tr><td><code>00-框架/L1-机会识别框架.md</code></td><td>四道筛选闸与搜索空间</td></tr>
+      <tr><td><code>00-框架/L2-数据可行性评分量表.md</code></td><td>七维度评分标准</td></tr>
+      <tr><td><code>00-框架/报告设计规范.md</code></td><td>本报告的视觉与结构规范</td></tr>
+      <tr><td><code>20-分析/L1-候选命题池.md</code></td><td>候选命题、撞车分析、淘汰理由</td></tr>
+      <tr><td><code>20-分析/L2-数据可行性评估.md</code></td><td>逐维度评分与依据</td></tr>
+      <tr><td><code>20-分析/L3-L4-方法与竞品.md</code></td><td>分析方法工具箱、竞品与既有研究扫描</td></tr>
+      <tr><td><code>20-分析/L5-方向簇建议.md</code></td><td>方向簇完整论证</td></tr>
+      <tr><td><code>../../部署/</code></td><td>工作流部署文档与任务记录</td></tr>
+    </table>
   </section>
 
   <footer>
